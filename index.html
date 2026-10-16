@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <title>درع | فاحص الروابط</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="dashboard" aria-label="الصفحة الرئيسية">
+        <span class="brand-mark">盾</span>
+        <span><strong>دِرع</strong><small>حماية الروابط</small></span>
+      </a>
+
+      <div class="sidebar-label">القائمة الرئيسية</div>
+      <nav class="nav-list" aria-label="التنقل الرئيسي">
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span> لوحة التحكم</button>
+        <button class="nav-link" data-page="scanner"><span class="nav-icon">⌕</span> فحص رابط <span class="nav-pill">جديد</span></button>
+        <button class="nav-link" data-page="history"><span class="nav-icon">◷</span> سجل الفحوصات</button>
+        <button class="nav-link" data-page="guide"><span class="nav-icon">◇</span> دليل الأمان</button>
+        <button class="nav-link" data-page="about"><span class="nav-icon">ⓘ</span> حول المشروع</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="secure-card">
+          <div class="secure-icon">✓</div>
+          <strong>تصفح بوعي</strong>
+          <p>توقف وتحقق قبل إدخال كلمة المرور أو بياناتك الشخصية.</p>
+        </div>
+        <div class="sidebar-footer"><span class="status-dot"></span> نسخة تعليمية تعمل محليًا</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <div class="breadcrumb"><span>دِرع</span><b>/</b><strong id="currentSection">لوحة التحكم</strong></div>
+        <div class="topbar-actions">
+          <span class="local-badge"><span class="status-dot"></span> الفحص محلي</span>
+          <button class="avatar" id="helpButton" title="معلومة">؟</button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> مركز الوعي الرقمي</div>
+            <h1>أهلًا بك في <span class="gradient-text">دِرع</span></h1>
+            <p class="lead">افحص مؤشرات الرابط، وتعرّف على علامات التصيّد قبل أن تضغط.</p>
+          </div>
+          <div class="shield-illustration" aria-hidden="true"><div class="shield-ring">✓</div><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>إجمالي الفحوصات</span><span class="stat-icon blue">⌕</span></div><strong id="statTotal">0</strong><small>على هذا الجهاز</small></article>
+          <article class="stat-card"><div class="stat-top"><span>روابط تحتاج انتباهًا</span><span class="stat-icon amber">!</span></div><strong id="statWarn">0</strong><small>ظهرت بها مؤشرات تحذير</small></article>
+          <article class="stat-card"><div class="stat-top"><span>آخر فحص</span><span class="stat-icon green">◷</span></div><strong class="last-scan" id="statLast">—</strong><small>وقت آخر عملية فحص</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel scan-panel">
+            <div class="panel-heading"><div><span class="panel-kicker">ابدأ من هنا</span><h2>افحص رابطًا الآن</h2></div><span class="heading-icon">⌕</span></div>
+            <p class="muted">أدخل الرابط كاملًا، وسنراجع بعض العلامات الشائعة التي قد تستحق الانتباه.</p>
+            <form id="quickScanForm" class="url-form">
+              <label for="quickUrl">الرابط المراد فحصه</label>
+              <div class="input-wrap"><span>↗</span><input id="quickUrl" type="text" placeholder="https://example.com" autocomplete="url" dir="ltr"></div>
+              <button class="btn btn-primary btn-full" type="submit">ابدأ الفحص <span>←</span></button>
+            </form>
+            <div class="panel-note"><span>ⓘ</span> لا تدخل كلمات مرور أو بيانات خاصة في هذا الموقع.</div>
+          </article>
+
+          <article class="panel tips-panel">
+            <div class="panel-heading"><div><span class="panel-kicker">نصيحة اليوم</span><h2>علامات تستحق الانتباه</h2></div><span class="heading-icon purple">✦</span></div>
+            <div class="tip-item"><span class="tip-number">01</span><div><strong>اسم نطاق غريب</strong><p>تحقق من التهجئة والحروف الإضافية أو البديلة.</p></div></div>
+            <div class="tip-item"><span class="tip-number">02</span><div><strong>استعجال غير معتاد</strong><p>رسائل التهديد بإغلاق الحساب قد تكون وسيلة ضغط.</p></div></div>
+            <div class="tip-item"><span class="tip-number">03</span><div><strong>طلب معلومات حساسة</strong><p>لا تشارك رموز التحقق أو كلمة المرور عبر رابط غير موثوق.</p></div></div>
+            <button class="text-button" data-page="guide">اقرأ دليل الأمان الكامل ←</button>
+          </article>
+        </div>
+        <div class="disclaimer"><span>ⓘ</span><div><strong>تنبيه مهم</strong><p>هذه أداة تعليمية تعتمد على مؤشرات بسيطة داخل المتصفح، ولا تتصل بقاعدة بيانات تهديدات ولا تضمن اكتشاف جميع الروابط الاحتيالية أو إثبات سلامة أي رابط.</p></div></div>
+      </section>
+
+      <section class="page" id="page-scanner">
+        <div class="page-heading"><div class="eyebrow"><span class="eyebrow-line"></span> أداة التحليل</div><h1>فحص <span class="gradient-text">رابط جديد</span></h1><p class="lead">تحليل محلي لمجموعة من المؤشرات الشائعة، مع توضيح سبب كل تحذير.</p></div>
+        <div class="panel scanner-panel">
+          <form id="scanForm" class="url-form">
+            <label for="scanUrl">أدخل عنوان الرابط</label>
+            <div class="input-wrap large"><span>↗</span><input id="scanUrl" type="text" placeholder="https://example.com" autocomplete="url" dir="ltr"></div>
+            <div class="form-hint">مثال للتجربة: http://example.com (لا تفتح الرابط؛ أدخله هنا فقط).</div>
+            <button class="btn btn-primary" type="submit">تحليل الرابط <span>⌕</span></button>
+          </form>
+          <div class="scan-result empty-state" id="scanResult">
+            <div class="empty-icon">⌕</div><h3>النتيجة ستظهر هنا</h3><p>أدخل رابطًا ثم اضغط «تحليل الرابط».</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-history">
+        <div class="page-heading page-heading-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> نشاطك المحلي</div><h1>سجل <span class="gradient-text">الفحوصات</span></h1><p class="lead">تُحفظ النتائج في متصفحك على هذا الجهاز فقط.</p></div><button class="btn btn-secondary" id="clearHistory">مسح السجل</button></div>
+        <div class="panel table-panel">
+          <div class="table-toolbar"><strong>العمليات الأخيرة</strong><span id="historyCount">0 نتيجة</span></div>
+          <div class="table-responsive"><table><thead><tr><th>الرابط</th><th>النتيجة</th><th>عدد المؤشرات</th><th>التاريخ</th></tr></thead><tbody id="historyBody"><tr><td colspan="4" class="table-empty">لا توجد فحوصات بعد. ابدأ بفحص رابط من القائمة.</td></tr></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-guide">
+        <div class="page-heading"><div class="eyebrow"><span class="eyebrow-line"></span> تعلّم واحمِ نفسك</div><h1>دليل <span class="gradient-text">الأمان الرقمي</span></h1><p class="lead">خطوات عملية تساعدك على تقليل مخاطر التصيّد الإلكتروني.</p></div>
+        <div class="guide-grid">
+          <article class="guide-card"><span class="guide-icon blue">⌕</span><h3>تحقق من النطاق</h3><p>اقرأ اسم النطاق بعناية، وانتبه للأخطاء الإملائية والحروف التي تشبه بعضها.</p><span class="guide-tag">قبل الضغط</span></article>
+          <article class="guide-card"><span class="guide-icon purple">✉</span><h3>افحص مصدر الرسالة</h3><p>تحقق من عنوان المرسل ولا تعتمد على الاسم الظاهر فقط، خصوصًا في الرسائل المستعجلة.</p><span class="guide-tag">تحقق من المصدر</span></article>
+          <article class="guide-card"><span class="guide-icon amber">⌑</span><h3>لا تشارك الرموز</h3><p>لا تعطي كلمة المرور أو رمز التحقق لموقع وصلت إليه عبر رسالة غير متوقعة.</p><span class="guide-tag">احمِ بياناتك</span></article>
+          <article class="guide-card"><span class="guide-icon green">✓</span><h3>استخدم التحقق الثنائي</h3><p>فعّل المصادقة متعددة العوامل في الحسابات المهمة لتقوية الحماية.</p><span class="guide-tag">طبقة حماية إضافية</span></article>
+          <article class="guide-card"><span class="guide-icon red">!</span><h3>انتبه للضغط النفسي</h3><p>التهديد بإيقاف حسابك أو الوعد بجائزة عاجلة أسلوب شائع لدفعك إلى التسرع.</p><span class="guide-tag">لا تتسرع</span></article>
+          <article class="guide-card"><span class="guide-icon blue">↗</span><h3>استخدم قناة موثوقة</h3><p>عند الشك، افتح الموقع الرسمي بكتابة عنوانه بنفسك أو من تطبيقه الرسمي.</p><span class="guide-tag">تحقق مستقل</span></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-about">
+        <div class="page-heading"><div class="eyebrow"><span class="eyebrow-line"></span> عن المشروع</div><h1>مشروع <span class="gradient-text">دِرع</span></h1><p class="lead">واجهة تعليمية للتوعية بعلامات التصيّد الإلكتروني.</p></div>
+        <div class="about-layout">
+          <article class="panel about-main"><div class="about-logo">盾</div><h2>ماذا يفعل دِرع؟</h2><p>يساعدك المشروع على إدخال رابط وتحليل بعض خصائصه محليًا، مثل استخدام HTTPS، وطول اسم المضيف، وبعض أنماط أسماء النطاقات. يعرض التحذيرات مع أسبابها ويحفظ سجل الفحوصات في المتصفح.</p><div class="feature-chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span></div></article>
+          <article class="panel about-limits"><h2>حدود الأداة</h2><ul><li>لا تتصل بخدمة خارجية أو قاعدة بيانات مواقع ضارة.</li><li>HTTPS لا يعني أن الموقع موثوق؛ فقد تستخدمه مواقع ضارة أيضًا.</li><li>عدم ظهور تحذيرات لا يثبت أن الرابط آمن.</li><li>لا تفتح روابط مجهولة لمجرد أنها اجتازت الفحص.</li></ul></article>
+        </div>
+      </section>
+
+      <footer class="footer"><span>دِرع © 2026</span><span>مشروع تعليمي للتوعية بالتصيّد الإلكتروني</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
